@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Simple Login</title>
+  <style>
+    body {
+      background: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .login-box {
+      background: #2e2e3e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00fff7;
+    }
+
+    input {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #00fff7;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <p>Hello, World!</p>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="아이디 입력">
+    <input type="password" id="password" placeholder="비밀번호 입력">
+    <button onclick="login()">로그인</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // 가짜 계정 정보
+    const correctUsername = "student";
+    const correctPassword = "math123";
+
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (user === correctUsername && pass === correctPassword) {
+        message.textContent = "로그인 성공! 환영합니다.";
+        message.style.color = "lightgreen";
+      } else {
+        message.textContent = "아이디 또는 비밀번호가 틀렸습니다.";
+        message.style.color = "red";
+      }
+    }
+  </script>
 </body>
 </html>
